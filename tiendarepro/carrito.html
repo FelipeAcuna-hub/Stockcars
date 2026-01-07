@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Carrito - StockCars Performance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+    <nav class="p-4 border-b border-gray-800 sticky top-0 bg-gray-900 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <i class="fa-solid fa-car-side text-red-600 group-hover:scale-110 transition-transform"></i>
+                <span class="font-bold tracking-tighter uppercase text-xl text-white">Stock<span class="text-red-600">Cars</span></span>
+            </a>
+            <div class="flex items-center space-x-6 text-sm font-bold uppercase tracking-widest">
+                <a href="index.html" class="hover:text-red-500 transition">Inicio</a>
+                <a href="buscador.html" class="hover:text-red-500 transition">Buscador</a>
+                <a href="servicios.html" class="hover:text-red-500 transition">Servicios</a>
+                <a href="nosotros.html" class="hover:text-red-500 transition">Nosotros</a>
+                <a href="carrito.html" class="text-red-600 transition ml-4">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] rounded-full px-1.5 py-0.5">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto py-16 px-6">
+        <h1 class="text-4xl font-black uppercase italic mb-10">Tu <span class="text-red-600">Selección</span></h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-2 space-y-6" id="lista-carrito">
+                <div class="bg-gray-800 p-10 rounded-2xl border border-gray-700 text-center">
+                    <p class="text-gray-500 italic">No hay archivos en tu carrito.</p>
+                    <a href="buscador.html" class="text-red-600 font-bold hover:underline mt-4 inline-block">Ir al buscador</a>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 p-8 rounded-2xl border border-red-600/30 h-fit sticky top-24 shadow-2xl">
+                <h3 class="text-xl font-bold mb-6 uppercase italic">Resumen de Compra</h3>
+                <div class="space-y-4 mb-8">
+                    <div class="flex justify-between text-gray-400">
+                        <span>Productos</span>
+                        <span id="resumen-cantidad">0</span>
+                    </div>
+                    <div class="flex justify-between font-bold text-2xl border-t border-gray-700 pt-4">
+                        <span>TOTAL</span>
+                        <span class="text-red-500" id="total-final">$0</span>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <button onclick="alert('Redirigiendo a Webpay...')" class="w-full bg-white text-black font-black py-4 rounded-xl hover:bg-gray-200 transition uppercase italic text-sm">
+                        Pagar con Webpay
+                    </button>
+                    <button onclick="window.location.href='https://wa.me/TUNUMERO'" class="w-full border border-gray-600 text-white font-bold py-4 rounded-xl hover:bg-gray-700 transition uppercase italic text-sm">
+                        Transferencia / WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-10 border-t border-gray-800 text-center text-gray-600 text-[10px] uppercase tracking-widest">
+        &copy; 2024 StockCars Performance - Santiago, Chile
+    </footer>
+
+    <script>
+        function cargarCarrito() {
+            const contenedor = document.getElementById('lista-carrito');
+            const totalFinal = document.getElementById('total-final');
+            const resumenCantidad = document.getElementById('resumen-cantidad');
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            if (carrito.length === 0) return;
+
+            contenedor.innerHTML = ''; // Limpiar mensaje de vacío
+            let totalGeneral = 0;
+
+            carrito.forEach((item, index) => {
+                totalGeneral += item.precio;
+                const div = document.createElement('div');
+                div.className = "bg-gray-800 p-6 rounded-2xl border border-gray-700 flex flex-col md:flex-row justify-between items-center gap-4 hover:border-gray-500 transition";
+                div.innerHTML = `
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-red-600/20 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-file-code text-red-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg uppercase">${item.nombre}</h4>
+                            <p class="text-gray-500 text-xs">Servicios: ${item.servicios.join(', ')}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <span class="text-xl font-black text-white">$${item.precio.toLocaleString()}</span>
+                        <button onclick="eliminarDelCarrito(${index})" class="text-gray-500 hover:text-red-600 transition">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+                contenedor.appendChild(div);
+            });
+
+            totalFinal.innerText = `$${totalGeneral.toLocaleString()}`;
+            resumenCantidad.innerText = carrito.length;
+            document.getElementById('cart-count').innerText = carrito.length;
+        }
+
+        function eliminarDelCarrito(index) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            location.reload(); // Recargar para mostrar cambios
+        }
+
+        // Ejecutar al abrir la página
+        window.onload = cargarCarrito;
+    </script>
+</body>
+</html>

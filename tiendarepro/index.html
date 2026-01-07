@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockCars - High Performance Software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+    <nav class="p-4 border-b border-gray-800 bg-gray-900 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="img/logo.png" alt="Logo" class="h-10 w-auto">
+                <span class="text-2xl font-bold tracking-tighter text-white uppercase">STOCK<span class="text-red-600">CARS</span></span>
+            </a>
+            <div class="hidden md:flex items-center space-x-6 uppercase text-xs font-bold tracking-widest">
+                <a href="index.html" class="text-red-600">Inicio</a>
+                <a href="servicios.html" class="hover:text-red-500 transition">Servicios</a>
+                <a href="nosotros.html" class="hover:text-red-500 transition">Nosotros</a>
+                <a href="galeria.html" class="hover:text-red-500 transition">Galería</a>
+                <a href="buscador.html" class="hover:text-red-500 transition border border-red-500 px-4 py-1 rounded">Buscador</a>
+                
+                <a href="carrito.html" class="relative hover:text-red-500 transition ml-4">
+                    <i class="fa-solid fa-cart-shopping text-lg text-white"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] rounded-full px-1.5 py-0.5">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1603584173870-7f3ca99a4741?q=80&w=2070" class="w-full h-full object-cover opacity-40" alt="Fondo Performance">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6">
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-4 italic tracking-tighter">STAGE <span class="text-red-600">YOUR</span> CAR</h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">Especialistas en optimización de software motor y soluciones avanzadas para vehículos de calle y competición.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="buscador.html" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-xl shadow-red-600/20">
+                    <i class="fa-solid fa-car-side mr-2"></i> BUSCAR MI AUTO
+                </a>
+                <a href="servicios.html" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-full font-bold text-lg transition border border-white/20">
+                    NUESTROS SERVICIOS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-24 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-2 text-red-600 uppercase">Soluciones Profesionales</h2>
+                <div class="h-1 w-20 bg-red-600 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-3xl border border-gray-700 hover:border-red-500 transition group cursor-pointer" onclick="window.location.href='servicios.html'">
+                    <i class="fa-solid fa-gauge-high text-4xl text-red-600 mb-6 group-hover:scale-110 transition"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-white uppercase italic">Chiptuning</h3>
+                    <p class="text-gray-400">Incremento de potencia y torque optimizando los mapas de inyección.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-3xl border border-gray-700 hover:border-red-500 transition group cursor-pointer" onclick="window.location.href='servicios.html'">
+                    <i class="fa-solid fa-microchip text-4xl text-red-600 mb-6 group-hover:scale-110 transition"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-white uppercase italic">EGR / DPF</h3>
+                    <p class="text-gray-400">Anulaciones electrónicas para evitar fallos y mejorar fiabilidad.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-3xl border border-gray-700 hover:border-red-500 transition group cursor-pointer" onclick="window.location.href='servicios.html'">
+                    <i class="fa-solid fa-fire text-4xl text-red-600 mb-6 group-hover:scale-110 transition"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-white uppercase italic">Pops & Bangs</h3>
+                    <p class="text-gray-400">Gestión de encendido para explosiones controladas en retención.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 border-t border-gray-800 bg-black/30">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left mb-12">
+                <div>
+                    <h4 class="text-white font-black uppercase italic mb-6">Stock<span class="text-red-600">Cars</span></h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Expertos en optimización de software motor en Chile. Potencia y seguridad para tu vehículo.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold uppercase text-sm mb-6 tracking-widest">Atención al Cliente</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><i class="fa-solid fa-phone text-red-600 mr-2"></i> +56 9 9516 1488</li>
+                        <li><i class="fa-solid fa-envelope text-red-600 mr-2"></i> stockcarscl@gmail.com</li>
+                        <li><i class="fa-solid fa-clock text-red-600 mr-2"></i> Lun - Vie: 9:00 AM - 7:00 PM</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold uppercase text-sm mb-6 tracking-widest">Síguenos</h4>
+                    <div class="flex justify-center md:justify-start gap-6">
+                        <a href="https://www.instagram.com/stockcars.cl/" class="text-gray-500 hover:text-red-600 text-2xl transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/56995161488" class="text-gray-500 hover:text-green-500 text-2xl transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-600 text-xs uppercase tracking-widest">&copy; 2026 STOCKCARS CHILE</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/catalogo.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
