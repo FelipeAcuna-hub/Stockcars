@@ -30,20 +30,39 @@
         </div>
     </nav>
 
-    <section id="inicio" class="relative h-[80vh] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1603584173870-7f3ca99a4741?q=80&w=2070" class="w-full h-full object-cover opacity-40" alt="Fondo Performance">
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900"></div>
+    <section id="inicio" class="relative h-[85vh] flex items-center justify-center overflow-hidden bg-black">
+    
+        <div class="absolute inset-0 z-0 flex w-full">
+            <div class="relative h-full w-[20%]" style="clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 0% 100%); z-index: 5;">
+                <img src="fotos/36.5.png" class="w-full h-full object-cover opacity-60">
+            </div>
+            <div class="relative h-full w-[20%] -ml-[3%]" style="clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); z-index: 4;">
+                <img src="fotos/23.2.png" class="w-full h-full object-cover opacity-50">
+            </div>
+            <div class="relative h-full w-[20%] -ml-[3%]" style="clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); z-index: 3;">
+                <img src="fotos/36.png" class="w-full h-full object-cover opacity-40">
+            </div>
+            <div class="relative h-full w-[20%] -ml-[3%]" style="clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); z-index: 2;">
+                <img src="fotos/11.2.png" class="w-full h-full object-cover opacity-30">
+            </div>
+            <div class="relative h-full w-[20%] -ml-[3%]" style="clip-path: polygon(0% 0%, 100% 85%, 100% 100%, 0% 100%); z-index: 1;">
+                <img src="fotos/10.png" class="w-full h-full object-cover opacity-30">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900 opacity-90 z-10"></div>
         </div>
-
-        <div class="relative z-10 text-center px-6">
-            <h1 class="text-6xl md:text-8xl font-extrabold mb-4 italic tracking-tighter">STAGE <span class="text-red-600">YOUR</span> CAR</h1>
-            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">Especialistas en optimización de software motor y soluciones avanzadas para vehículos de calle y competición.</p>
+    
+        <div class="relative z-20 text-center px-6">
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-4 italic tracking-tighter uppercase">STAGE <span class="text-red-600">YOUR</span> CAR</h1>
+            
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8 font-bold italic">
+                Especialistas en optimización de software motor y soluciones avanzadas para vehículos de calle y competición.
+            </p>
+            
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="buscador.html" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-xl shadow-red-600/20">
+                <a href="buscador.html" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-xl shadow-red-600/20 flex items-center justify-center">
                     <i class="fa-solid fa-car-side mr-2"></i> BUSCAR MI AUTO
                 </a>
-                <a href="servicios.html" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-full font-bold text-lg transition border border-white/20">
+                <a href="servicios.html" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-full font-bold text-lg transition border border-white/20 flex items-center justify-center">
                     NUESTROS SERVICIOS
                 </a>
             </div>
@@ -77,17 +96,17 @@
         </div>
     </section>
 
-    <footer class="py-16 border-t border-gray-800 bg-black/30">
+    <footer class="py-16 border-t border-gray-800 bg-black/30 mt-auto">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left mb-12">
                 <div>
                     <h4 class="text-white font-black uppercase italic mb-6">Stock<span class="text-red-600">Cars</span></h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Expertos en optimización de software motor en Chile. Potencia y seguridad para tu vehículo.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed font-bold">Expertos en optimización de software motor en Chile. Potencia y seguridad para tu vehículo.</p>
                 </div>
                 
                 <div>
-                    <h4 class="text-white font-bold uppercase text-sm mb-6 tracking-widest">Atención al Cliente</h4>
-                    <ul class="space-y-4 text-gray-400 text-sm">
+                    <h4 class="text-white font-bold uppercase text-sm mb-6 tracking-widest text-white">Atención al Cliente</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm font-bold">
                         <li><i class="fa-solid fa-phone text-red-600 mr-2"></i> +56 9 9516 1488</li>
                         <li><i class="fa-solid fa-envelope text-red-600 mr-2"></i> stockcarscl@gmail.com</li>
                         <li><i class="fa-solid fa-clock text-red-600 mr-2"></i> Lun - Vie: 9:00 AM - 7:00 PM</li>
@@ -95,10 +114,10 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-white font-bold uppercase text-sm mb-6 tracking-widest">Síguenos</h4>
-                    <div class="flex justify-center md:justify-start gap-6">
-                        <a href="https://www.instagram.com/stockcars.cl/" class="text-gray-500 hover:text-red-600 text-2xl transition"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://wa.me/56995161488" class="text-gray-500 hover:text-green-500 text-2xl transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    <h4 class="text-white font-bold uppercase text-sm mb-6 tracking-widest text-white text-center md:text-left">Síguenos</h4>
+                    <div class="flex justify-center md:justify-start gap-8">
+                        <a href="https://www.instagram.com/stockcars.cl/" target="_blank" class="text-gray-500 hover:text-red-600 text-3xl transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/56995161488" target="_blank" class="text-gray-500 hover:text-green-500 text-3xl transition"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
