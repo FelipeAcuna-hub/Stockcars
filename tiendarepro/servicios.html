@@ -15,9 +15,14 @@
                 <img src="img/logo.png" alt="Logo" class="h-10 w-auto">
                 <span class="text-2xl font-bold tracking-tighter text-white uppercase">STOCK<span class="text-red-600">CARS</span></span>
             </a>
+    
+            <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
+    
             <div class="hidden md:flex items-center space-x-6 uppercase text-xs font-bold tracking-widest">
                 <a href="index.html" class="hover:text-red-500 transition">Inicio</a>
-                <a href="servicios.html" class="text-red-600">Servicios</a> 
+                <a href="servicios.html" class="text-red-600">Servicios</a>
                 <a href="galeria.html" class="hover:text-red-500 transition">Galería</a>
                 <a href="nosotros.html" class="hover:text-red-500 transition">Nosotros</a>
                 <a href="buscador.html" class="hover:text-red-500 transition border border-red-500 px-4 py-1 rounded">Buscador</a>
@@ -27,7 +32,34 @@
                 </a>
             </div>
         </div>
+    
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800 mt-4 flex flex-col space-y-4 p-4 uppercase text-sm font-bold tracking-widest italic">
+            <a href="index.html" class="py-2 border-b border-gray-800">Inicio</a>
+            <a href="servicios.html" class="py-2 border-b border-gray-800">Servicios</a>
+            <a href="galeria.html" class="py-2 border-b border-gray-800">Galería</a>
+            <a href="nosotros.html" class="py-2 border-b border-gray-800">Nosotros</a>
+            <a href="buscador.html" class="py-2 text-red-600">Buscador</a>
+            <a href="carrito.html" class="py-2 flex justify-between items-center">
+                Carrito <span id="cart-count-mobile" class="bg-red-600 px-2 py-0.5 rounded-full text-[10px]">0</span>
+            </a>
+        </div>
     </nav>
+
+    <script>
+        const btn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+    
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            // Cambia el icono de barras por una X cuando se abre
+            if (menu.classList.contains('hidden')) {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            } else {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            }
+        });
+    </script>
 
     <header class="py-16 bg-gradient-to-b from-gray-800 to-gray-900 text-center">
         <div class="container mx-auto px-6">
@@ -151,5 +183,28 @@
 
     <script src="js/catalogo.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Tu función de los slides que ya tienes...
+        function moveSlide(step, containerId) {
+            // ... (tu código actual)
+        }
+    
+        // --- ESTO ES LO QUE FALTA EN GALERÍA ---
+        function actualizarContadorGaleria() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const contador = document.getElementById('cart-count');
+            const contadorMobile = document.getElementById('cart-count-mobile');
+            
+            if (contador) {
+                contador.innerText = carrito.length;
+            }
+            if (contadorMobile) {
+                contadorMobile.innerText = carrito.length;
+            }
+        }
+    
+        // EJECUTAR APENAS CARGUE LA PÁGINA
+        document.addEventListener('DOMContentLoaded', actualizarContadorGaleria);
+    </script>
 </body>
 </html>

@@ -2,6 +2,7 @@ function mostrarResultado(auto) {
     // Actualizar HP y Torque en el HTML
     document.getElementById('hp-original').innerText = auto.specs.hp_orig;
     document.getElementById('hp-stage1').innerText = auto.specs.hp_stg1;
+    document.getElementById('hp-stage2').innerText = auto.specs.hp_stg2 || 'N/A';
     
     // Actualizar precios de servicios extra
     document.getElementById('check-egr').dataset.price = auto.precios.egr_off;
@@ -13,7 +14,6 @@ function mostrarResultado(auto) {
 
     updatePrice(); // Llamar a la función de suma que hicimos antes
 }
-
 const VEHICULOS = [
     {
         "marca": "Alfa Romeo",
@@ -27,7 +27,7 @@ const VEHICULOS = [
         "nm_stg1": 200,
         "precio_st1": 200000,
         "precio_egr": 0,
-        "precio_dpf": 0
+        "precio_stage2": 0
     },
     {
         "marca": "Mitsubishi",
@@ -42,5 +42,175 @@ const VEHICULOS = [
         "precio_st1": 180000,
         "precio_egr": 0,
         "precio_dpf": 0
-    }
+    },
+    {
+        "marca": "Nissan",
+        "modelo": "370z",
+        "año": "2012-2015",
+        "motor": "3.7 V6",
+        "combustible": "Bencina",
+        "hp_orig": 330,
+        "nm_orig": 366,
+        "hp_stg1": 365, //es stge 2, no 1
+        "nm_stg1": 406,
+        "precio_st1": 180000,
+        "precio_egr": 0,
+        "precio_dpf": 0
+    },
+    {
+        "marca": "Volkswagen",
+        "modelo": "Amarok",
+        "año": "2010-2015",
+        "motor": "2.0TDI",
+        "combustible": "Diésel",
+        "hp_orig": 180,
+        "nm_orig": 420,
+        "hp_stg1": 214, 
+        "nm_stg1": 500,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_dpf": 0
+    },
+    {
+        "marca": "Audi",
+        "modelo": "Q7",
+        "año": "2010-2015",
+        "motor": "3.0 V6 TDI",
+        "combustible": "Diésel",
+        "hp_orig": 272,
+        "nm_orig": 600,
+        "hp_stg1": 322, 
+        "nm_stg1": 690,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_dpf": 0
+    },
+    {
+        "marca": "Mercedes Benz",
+        "modelo": "GLA 220D",
+        "año": "2019-2021",
+        "motor": "2.1D",
+        "combustible": "Diésel",
+        "hp_orig": 177,
+        "nm_orig": 350,
+        "hp_stg1": 210, 
+        "nm_stg1": 420,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_dpf": 0
+    },
+    {
+        "marca": "Mercedes Benz",
+        "modelo": "A200",
+        "año": "2019-2021",
+        "motor": "1.6T",
+        "combustible": "Bencina",
+        "hp_orig": 156,
+        "nm_orig": 250,
+        "hp_stg1": 186, 
+        "nm_stg1": 310,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_dpf": 0
+    },
+    {
+        "marca": "Mitsubishi",
+        "modelo": "L200 Katana",
+        "año": "2020-2024",
+        "motor": "2.4D",
+        "combustible": "Diésel",
+        "hp_orig": 177,
+        "nm_orig": 350,
+        "hp_stg1": 210, 
+        "nm_stg1": 420,
+        "hp_stg2": 250,
+        "nm_stg2": 500,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_stg2": 2000000
+    },
+    {
+        "marca": "Nissan",
+        "modelo": "NP300",
+        "año": "2020-2024",
+        "motor": "2.3D",
+        "combustible": "Diésel",
+        "hp_orig": 160,
+        "nm_orig": 403,
+        "hp_stg1": 190, 
+        "nm_stg1": 458,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_dpf": 0
+    },
+    {
+        "marca": "Audi",
+        "modelo": "A3",
+        "año": "2010-2014",
+        "motor": "1.8T",
+        "combustible": "Bencina",
+        "hp_orig": 160, // terminar 
+        "nm_orig": 403,
+        "hp_stg1": 190, 
+        "nm_stg1": 458,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_dpf": 0
+    },
+    {
+        "marca": "Ford",
+        "modelo": "Ranger",
+        "año": "2014-2018",
+        "motor": "3.2D",
+        "combustible": "Diésel",
+        "hp_orig": 200, 
+        "nm_orig": 470,
+        "hp_stg1": 232, 
+        "nm_stg1": 550,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_dpf": 0
+    },
+    {
+        "marca": "Kia",
+        "modelo": "Sorento",
+        "año": "2014-2018",
+        "motor": "2.2 CRDI",
+        "combustible": "Diésel",
+        "hp_orig": 200, 
+        "nm_orig": 440,
+        "hp_stg1": 232, 
+        "nm_stg1": 496,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_dpf": 0
+    },
+    {
+        "marca": "Volvo",
+        "modelo": "V40",
+        "año": "2014-2018",
+        "motor": "D2 2.0",
+        "combustible": "Diésel",
+        "hp_orig": 120, 
+        "nm_orig": 280,
+        "hp_stg1": 170, 
+        "nm_stg1": 370,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_dpf": 0
+    },
+    {
+        "marca": "Audi",
+        "modelo": "A3",
+        "año": "2010-2015",
+        "motor": "1.2 TFSI",
+        "combustible": "Bencina",
+        "hp_orig": 105, 
+        "nm_orig": 175,
+        "hp_stg1": 130, 
+        "nm_stg1": 225,
+        "precio_st1": 180000,
+        "precio_egr": 280000,
+        "precio_dpf": 0
+    },
 ];

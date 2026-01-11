@@ -81,11 +81,21 @@ function renderizarResultado(auto) {
     document.getElementById('res-hp-stg1').innerText = auto.hp_stg1;
     document.getElementById('res-nm-stg1').innerText = `${auto.nm_stg1} Nm`;
 
+    const contenedorStage2 = document.getElementById('contenedor-stage2');
+    if (auto.hp_stg2 && auto.hp_stg2 > 0) {
+        contenedorStage2.classList.remove('hidden'); // Lo mostramos si hay datos
+        document.getElementById('hp-stage2').innerText = auto.hp_stg2;
+        document.getElementById('nm-stage2').innerText = `${auto.nm_stg2} Nm`;
+    } else {
+        contenedorStage2.classList.add('hidden'); // Lo ocultamos si no tiene Stage 2
+    }
+
     // Inyectar Servicios
     const lista = document.getElementById('lista-servicios');
     lista.innerHTML = '';
     crearCheckbox(lista, "Reprogramación Stage 1", auto.precio_st1 || 0);
-    if (auto.precio_egr > 0) crearCheckbox(lista, "Anulación EGR", auto.precio_egr);
+    if (auto.precio_egr > 0) crearCheckbox(lista, "Anulación DPF y EGR", auto.precio_egr);
+    if (auto.precio_stg2 > 0) crearCheckbox(lista, "Reprogramación Stage 2", auto.precio_stg2);
     if (auto.precio_dpf > 0) crearCheckbox(lista, "Anulación DPF", auto.precio_dpf);
 
     actualizarPrecioUI();
@@ -116,15 +126,21 @@ function actualizarPrecioUI() {
 // --- 4. SISTEMA DE CARRITO (LOCALSTORAGE) ---
 
 document.addEventListener('click', (e) => {
-    // Botón Comprar .BIN
-    if (e.target.innerText === "COMPRAR ARCHIVO .BIN") {
+    // Usamos toUpperCase() y trim() para que la comparación sea más segura
+    if (e.target.innerText.trim().toUpperCase() === "COMPRAR .BIN" || 
+        e.target.innerText.trim().toUpperCase() === "COMPRAR ARCHIVO .BIN") {
+        
         const marca = selectMarca.value;
         const modelo = selectModelo.value;
         const motor = selectMotor.value;
         const precioTotal = parseInt(document.getElementById('precio-total').innerText.replace(/[^0-9]/g, ''));
         
         const servicios = [];
-        document.querySelectorAll('.servicio-check:checked').forEach(c => servicios.push(c.dataset.nombre));
+        // Importante: Asegúrate que tus checkboxes tengan data-nombre="..." en el HTML
+        document.querySelectorAll('.servicio-check:checked').forEach(c => {
+            const nombreServicio = c.nextElementSibling ? c.nextElementSibling.innerText : "Servicio";
+            servicios.push(nombreServicio);
+        });
 
         if (servicios.length === 0) {
             alert("Selecciona al menos un servicio para comprar.");
@@ -147,7 +163,9 @@ function agregarAlCarrito(producto) {
     carrito.push(producto);
     localStorage.setItem('carrito', JSON.stringify(carrito));
     actualizarContadorCarrito();
-    alert("¡Producto añadido al carrito!");
+    
+    // REDIRECCIÓN AQUÍ:
+    window.location.href = 'carrito.html';
 }
 
 function actualizarContadorCarrito() {
@@ -155,3 +173,6 @@ function actualizarContadorCarrito() {
     const contador = document.getElementById('cart-count');
     if (contador) contador.innerText = carrito.length;
 }
+
+// Ejecutar al cargar para que el contador no se borre al refrescar
+actualizarContadorCarrito();

@@ -20,15 +20,51 @@
                 <img src="img/logo.png" alt="Logo" class="h-10 w-auto">
                 <span class="text-2xl font-bold tracking-tighter text-white uppercase">STOCK<span class="text-red-600">CARS</span></span>
             </a>
+    
+            <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
+    
             <div class="hidden md:flex items-center space-x-6 uppercase text-xs font-bold tracking-widest">
                 <a href="index.html" class="hover:text-red-500 transition">Inicio</a>
                 <a href="servicios.html" class="hover:text-red-500 transition">Servicios</a>
                 <a href="galeria.html" class="text-red-600">Galería</a>
                 <a href="nosotros.html" class="hover:text-red-500 transition">Nosotros</a>
                 <a href="buscador.html" class="hover:text-red-500 transition border border-red-500 px-4 py-1 rounded">Buscador</a>
+                <a href="carrito.html" class="relative hover:text-red-500 transition ml-4">
+                    <i class="fa-solid fa-cart-shopping text-lg text-white"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] rounded-full px-1.5 py-0.5">0</span>
+                </a>
             </div>
         </div>
+    
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800 mt-4 flex flex-col space-y-4 p-4 uppercase text-sm font-bold tracking-widest italic">
+            <a href="index.html" class="py-2 border-b border-gray-800">Inicio</a>
+            <a href="servicios.html" class="py-2 border-b border-gray-800">Servicios</a>
+            <a href="galeria.html" class="py-2 border-b border-gray-800">Galería</a>
+            <a href="nosotros.html" class="py-2 border-b border-gray-800">Nosotros</a>
+            <a href="buscador.html" class="py-2 text-red-600">Buscador</a>
+            <a href="carrito.html" class="py-2 flex justify-between items-center">
+                Carrito <span id="cart-count-mobile" class="bg-red-600 px-2 py-0.5 rounded-full text-[10px]">0</span>
+            </a>
+        </div>
     </nav>
+    
+    <script>
+        const btn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+    
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            // Cambia el icono de barras por una X cuando se abre
+            if (menu.classList.contains('hidden')) {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            } else {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            }
+        });
+    </script>
 
     <main class="flex-grow container mx-auto py-16 px-6">
         <div class="text-center mb-16">
@@ -94,6 +130,27 @@
                         <div class="flex justify-between text-[10px] font-bold uppercase"><span>Potencia</span><span class="text-red-500">+58 HP</span></div>
                         <div class="w-full bg-gray-900 h-1.5 rounded-full"><div class="bg-red-600 h-full" style="width: 75%"></div></div>
                         <div class="flex justify-between text-[10px] font-bold uppercase"><span>Torque</span><span class="text-red-500">+40 NM</span></div>
+                        <div class="w-full bg-gray-900 h-1.5 rounded-full"><div class="bg-red-600 h-full" style="width: 60%"></div></div>
+                    </div>
+                    <a href="https://wa.me/56995161488" class="mt-auto w-full bg-green-600 text-white py-3 rounded-xl text-center font-bold uppercase text-xs">Consultar</a>
+                </div>
+            </div>
+
+            <div class="group bg-gray-800 rounded-3xl overflow-hidden border border-gray-700 hover:border-red-600 transition-all shadow-2xl flex flex-col" id="car-1">
+                <div class="relative h-80 overflow-hidden">
+                    <div class="slide active h-full"><img src="fotos/24.png" class="w-full h-full object-cover"></div>
+                    <div class="slide h-full"><img src="fotos/24.2.png" class="w-full h-full object-cover"></div>
+                    <button onclick="moveSlide(-1, 'car-1')" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button onclick="moveSlide(1, 'car-1')" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="absolute top-4 right-4 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase italic">Stage 1 + VMAX OFF</div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <h3 class="text-2xl font-bold uppercase italic mb-2">Audi A3 1.2 TFSI 2013</h3>
+                    <p class="text-gray-400 text-sm mb-6">Optimización de torque para remolque y carga.</p>
+                    <div class="space-y-4 mb-6 border-t border-gray-700 pt-4">
+                        <div class="flex justify-between text-[10px] font-bold uppercase"><span>Potencia</span><span class="text-red-500">+45 HP</span></div>
+                        <div class="w-full bg-gray-900 h-1.5 rounded-full"><div class="bg-red-600 h-full" style="width: 75%"></div></div>
+                        <div class="flex justify-between text-[10px] font-bold uppercase"><span>Torque</span><span class="text-red-500">+90 NM</span></div>
                         <div class="w-full bg-gray-900 h-1.5 rounded-full"><div class="bg-red-600 h-full" style="width: 60%"></div></div>
                     </div>
                     <a href="https://wa.me/56995161488" class="mt-auto w-full bg-green-600 text-white py-3 rounded-xl text-center font-bold uppercase text-xs">Consultar</a>

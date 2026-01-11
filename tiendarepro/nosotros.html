@@ -15,23 +15,55 @@
                 <img src="img/logo.png" alt="Logo" class="h-10 w-auto">
                 <span class="text-2xl font-bold tracking-tighter text-white uppercase">STOCK<span class="text-red-600">CARS</span></span>
             </a>
+    
+            <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
+    
             <div class="hidden md:flex items-center space-x-6 uppercase text-xs font-bold tracking-widest">
                 <a href="index.html" class="hover:text-red-500 transition">Inicio</a>
                 <a href="servicios.html" class="hover:text-red-500 transition">Servicios</a>
                 <a href="galeria.html" class="hover:text-red-500 transition">Galería</a>
-                <a href="nosotros.html" class="text-red-600">Nosotros</a> <a href="buscador.html" class="hover:text-red-500 transition border border-red-500 px-4 py-1 rounded">Buscador</a>
-                
+                <a href="nosotros.html" class="text-red-600">Nosotros</a>
+                <a href="buscador.html" class="hover:text-red-500 transition border border-red-500 px-4 py-1 rounded">Buscador</a>
                 <a href="carrito.html" class="relative hover:text-red-500 transition ml-4">
                     <i class="fa-solid fa-cart-shopping text-lg text-white"></i>
                     <span id="cart-count" class="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] rounded-full px-1.5 py-0.5">0</span>
                 </a>
             </div>
         </div>
+    
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800 mt-4 flex flex-col space-y-4 p-4 uppercase text-sm font-bold tracking-widest italic">
+            <a href="index.html" class="py-2 border-b border-gray-800">Inicio</a>
+            <a href="servicios.html" class="py-2 border-b border-gray-800">Servicios</a>
+            <a href="galeria.html" class="py-2 border-b border-gray-800">Galería</a>
+            <a href="nosotros.html" class="py-2 border-b border-gray-800">Nosotros</a>
+            <a href="buscador.html" class="py-2 text-red-600">Buscador</a>
+            <a href="carrito.html" class="py-2 flex justify-between items-center">
+                Carrito <span id="cart-count-mobile" class="bg-red-600 px-2 py-0.5 rounded-full text-[10px]">0</span>
+            </a>
+        </div>
     </nav>
+
+    <script>
+        const btn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+    
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            // Cambia el icono de barras por una X cuando se abre
+            if (menu.classList.contains('hidden')) {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            } else {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            }
+        });
+    </script>
 
     <header class="relative py-24 bg-gray-900 overflow-hidden">
         <div class="absolute inset-0 opacity-10">
-            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Background" class="w-full h-full object-cover">
+            <img src="fotos/WhatsApp Image 2026-01-10 at 22.24.46.jpeg" alt="Background" class="w-full h-full object-cover">
         </div>
         <div class="container mx-auto px-6 relative z-10 text-center">
             <h1 class="text-5xl md:text-6xl font-black uppercase italic mb-6 leading-tight">

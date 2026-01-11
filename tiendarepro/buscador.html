@@ -27,6 +27,16 @@
                 </a>
             </div>
         </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800 mt-4 flex flex-col space-y-4 p-4 uppercase text-sm font-bold tracking-widest italic">
+            <a href="index.html" class="py-2 border-b border-gray-800">Inicio</a>
+            <a href="servicios.html" class="py-2 border-b border-gray-800">Servicios</a>
+            <a href="galeria.html" class="py-2 border-b border-gray-800">Galería</a>
+            <a href="nosotros.html" class="py-2 border-b border-gray-800">Nosotros</a>
+            <a href="buscador.html" class="py-2 text-red-600">Buscador</a>
+            <a href="carrito.html" class="py-2 flex justify-between items-center">
+                Carrito <span id="cart-count-mobile" class="bg-red-600 px-2 py-0.5 rounded-full text-[10px]">0</span>
+            </a>
+        </div>
     </nav>
 
     <div class="flex-grow">
@@ -61,9 +71,21 @@
                     </div>
                     <div class="bg-red-600/10 p-8 rounded-2xl border border-red-600/30 text-center relative overflow-hidden">
                         <div class="absolute top-4 right-4 text-[10px] font-bold text-red-500 uppercase italic">Stage 1</div>
-                        <p class="text-red-500 text-xs font-bold uppercase tracking-widest mb-2">Optimizado</p>
+                        <p class="text-red-500 text-xs font-bold uppercase tracking-widest mb-2">Reprogramación </p>
                         <p class="text-5xl font-black text-red-600 mb-1"><span id="res-hp-stg1">0</span> <span class="text-xl text-red-400">HP</span></p>
                         <p id="res-nm-stg1" class="text-xl font-bold text-red-500">0 Nm</p>
+                    </div>
+                    <div id="contenedor-stage2" class="hidden bg-blue-900/40 p-8 rounded-2xl border border-blue-700/50 text-center relative overflow-hidden flex flex-col justify-center">
+                        <div class="absolute top-4 right-4 text-[10px] font-bold text-blue-400 uppercase italic">Stage 2 </div>
+                        
+                        <p class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Reprogramación </p>
+                        
+                        <p class="text-6xl font-black text-blue-500 mb-1">
+                            <span id="hp-stage2">0</span> 
+                            <span class="text-xl text-blue-500">HP</span>
+                        </p>
+                        
+                        <p id="nm-stage2" class="text-xl font-bold text-blue-400/80">0 Nm</p>
                     </div>
                 </div>
 
