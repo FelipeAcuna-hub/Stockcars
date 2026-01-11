@@ -97,6 +97,7 @@ function renderizarResultado(auto) {
     if (auto.precio_egr > 0) crearCheckbox(lista, "Anulación DPF y EGR", auto.precio_egr);
     if (auto.precio_stg2 > 0) crearCheckbox(lista, "Reprogramación Stage 2", auto.precio_stg2);
     if (auto.precio_dpf > 0) crearCheckbox(lista, "Anulación DPF", auto.precio_dpf);
+    if (auto.has_pops && auto.precio_pops > 0) crearCheckbox(lista, "Sistema de Pops & Bangs 💥", auto.precio_pops);
 
     actualizarPrecioUI();
     resultadoDiv.scrollIntoView({ behavior: 'smooth' });
@@ -176,3 +177,4 @@ function actualizarContadorCarrito() {
 
 // Ejecutar al cargar para que el contador no se borre al refrescar
 actualizarContadorCarrito();
+
