@@ -124,6 +124,37 @@ function actualizarPrecioUI() {
     document.getElementById('precio-total').innerHTML = `$${total.toLocaleString()} <span class="text-sm text-gray-500">CLP</span>`;
 }
 
+function filtrarVehiculos() {
+    // ... tu lógica de filtrado actual ...
+    const resultados = vehiculosFiltrados; // Supongamos que este es tu array final
+    const contenedorNoEncontrado = document.getElementById('no-encontrado');
+    const grillaResultados = document.getElementById('grilla-autos'); // El div donde muestras los autos
+
+    if (resultados.length === 0) {
+        grillaResultados.classList.add('hidden');
+        contenedorNoEncontrado.classList.remove('hidden');
+    } else {
+        grillaResultados.classList.remove('hidden');
+        contenedorNoEncontrado.classList.add('hidden');
+    }
+}
+
+// Escuchar el envío del formulario personalizado
+document.getElementById('form-personalizado').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const marca = document.getElementById('m-marca').value;
+    const modelo = document.getElementById('m-modelo').value;
+    const motor = document.getElementById('m-motor').value;
+    const ano = document.getElementById('m-ano').value;
+    const servicio = document.getElementById('m-servicio').value;
+
+    const mensajeWA = `Hola StockCars! 🚗 No encontré mi auto en el buscador.%0A%0A*DATOS DEL VEHÍCULO*%0A- *Marca:* ${marca}%0A- *Modelo:* ${modelo}%0A- *Motor:* ${motor}%0A- *Año:* ${ano}%0A- *Servicio:* ${servicio}`;
+    
+    // Reemplaza con tu número real
+    window.open(`https://wa.me/56995161488?text=${mensajeWA}`, '_blank');
+});
+
 // --- 4. SISTEMA DE CARRITO (LOCALSTORAGE) ---
 
 document.addEventListener('click', (e) => {

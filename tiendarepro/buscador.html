@@ -137,6 +137,30 @@
         </main>
     </div>
 
+    <div id="no-encontrado" class="hidden mt-12 mb-20 animate-fade-in">
+        <div class="bg-gray-900 border border-gray-800 p-8 rounded-3xl max-w-2xl mx-auto text-center shadow-2xl">
+            <div class="inline-block p-4 bg-red-600/10 rounded-full mb-6">
+                <i class="fa-solid fa- car-burst text-red-600 text-4xl"></i>
+            </div>
+            <h3 class="text-2xl font-black uppercase italic text-white mb-2">¿No encontramos tu motor?</h3>
+            <p class="text-gray-400 mb-8 italic">Déjanos los datos de tu vehículo y te enviaremos una cotización personalizada en minutos.</p>
+    
+            <form id="form-personalizado" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                <input type="text" id="m-marca" placeholder="Marca" required class="bg-black border border-gray-800 text-white p-4 rounded-xl focus:border-red-600 outline-none transition">
+                <input type="text" id="m-modelo" placeholder="Modelo" required class="bg-black border border-gray-800 text-white p-4 rounded-xl focus:border-red-600 outline-none transition">
+                <input type="text" id="m-motor" placeholder="Motorización (Ej: 2.0 TDI)" required class="bg-black border border-gray-800 text-white p-4 rounded-xl focus:border-red-600 outline-none transition">
+                <input type="number" id="m-ano" placeholder="Año" required class="bg-black border border-gray-800 text-white p-4 rounded-xl focus:border-red-600 outline-none transition">
+                
+                <textarea id="m-servicio" placeholder="¿Qué servicio buscas? (Stage 1, DPF Off, etc.)" class="md:col-span-2 bg-black border border-gray-800 text-white p-4 rounded-xl h-24 focus:border-red-600 outline-none transition"></textarea>
+                
+                <button type="submit" class="md:col-span-2 bg-red-600 text-white font-black py-4 rounded-xl hover:bg-white hover:text-black transition-all uppercase italic flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    Solicitar Cotización por WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
     <footer class="py-16 border-t border-gray-800 bg-black/30 mt-auto">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left mb-12">
